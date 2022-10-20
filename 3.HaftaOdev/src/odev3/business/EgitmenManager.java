@@ -9,23 +9,16 @@ public class EgitmenManager {
 	
 	private EgitmenDao egitmenDao;
 	private Logger[] loggers;
-	private EgitmenDao egitmenDao2;
 	
-	public EgitmenDao getEgitmenDao() {
-		return egitmenDao;
-	}
-	public void setEgitmenDao(EgitmenDao egitmenDao) {
-		this.egitmenDao = egitmenDao;
-	}
 	
 	public EgitmenManager(EgitmenDao egitmenDao, Logger[] loggers) {
 		
-		this.setEgitmenDao(egitmenDao);
+		this.egitmenDao = egitmenDao;
 		this.loggers = loggers;
 	}
 	public void add(Egitmen egitmen) {
-		egitmenDao2 = null;
-		egitmenDao2.add(egitmen);
+		egitmenDao.add(egitmen);
+		
 		for(Logger logger : loggers) {
 			logger.log(egitmen.getEgitmenAdı());
 		}	
